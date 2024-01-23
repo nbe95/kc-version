@@ -3,9 +3,9 @@
 # Abort on error
 set -e
 
-# Reusable functions
-usage() { echo "Usage: $(basename "$0") [-h|--help] [-v|--verbose] [-i|--integer] [--major|--minor] [VERSION]" 1>&2; exit 0; }
+# shellcheck disable=SC2001
 trim_leading_zeros() { echo "$1" | sed 's/^0\+\(.\)/\1/'; }
+usage() { echo "Usage: $(basename "$0") [-h|--help] [-v|--verbose] [-i|--integer] [--major|--minor] [VERSION]" 1>&2; exit 0; }
 
 # Parse argument options
 VERBOSE=false
@@ -45,6 +45,7 @@ else
         echo "Version tag '$version' has invalid format."
         exit 2
     fi
+    # shellcheck disable=SC2001
     version="$(echo "$version" | sed 's/[^0-9]//g')"
     printf -v version "%08d" "$(trim_leading_zeros "$version")"
 
