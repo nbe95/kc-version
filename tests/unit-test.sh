@@ -2,6 +2,8 @@
 
 DIR="$(dirname "$0")"
 KC_VERSION="$DIR/../kc-version.sh"
+
+# shellcheck disable=SC1091
 source "$DIR/assert/assert.sh"
 
 
