@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 DIR="$(dirname "$0")"
 KC_VERSION="$DIR/../kc-version.sh"
@@ -48,8 +48,8 @@ assert_eq "$($KC_VERSION -i 99.99.9999  )" "99999999" "invalid"
 
 # Prepare current, next and previous year as variables
 CY="$(date +"%y")"
-NY=$(($CY + 1))
-PY=$(($CY - 1))
+NY=$((CY + 1))
+PY=$((CY - 1))
 
 # Version bump
 assert_eq "$($KC_VERSION --major 12.34.9956 &> /dev/null)$?" "3" "invalid"

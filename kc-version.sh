@@ -54,8 +54,8 @@ else
 fi
 
 # Parse remaining components
-major=$(($majmin / 100))
-minor=$(($majmin % 100))
+major=$((majmin / 100))
+minor=$((majmin % 100))
 
 # Perform version bump if requested
 if $BUMP_MAJOR || $BUMP_MINOR; then
@@ -67,11 +67,11 @@ if $BUMP_MAJOR || $BUMP_MINOR; then
         minor=0
     elif $BUMP_MAJOR; then
         # Bump major, reset minor
-        major="$(($major + 1))"
+        major="$((major + 1))"
         minor=0
     else
         # Bump minor
-        minor="$(($minor + 1))"
+        minor="$((minor + 1))"
     fi
 fi
 
@@ -82,11 +82,10 @@ fi
 
 # Output parsed version
 if $INTEGER; then
-    out_format="%02d%02d%02d%02d\n"
+    printf "%02d%02d%02d%02d\n" "$customer" "$year" "$major" "$minor"
 else
-    out_format="%02d.%02d.%02d%02d\n"
+    printf "%02d.%02d.%02d%02d\n" "$customer" "$year" "$major" "$minor"
 fi
-printf "$out_format" "$customer" "$year" "$major" "$minor"
 
 # Verbose output
 if $VERBOSE; then
