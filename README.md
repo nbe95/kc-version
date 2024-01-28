@@ -4,7 +4,7 @@
 
 We live in a world which is far from perfect. Everybody should obviously utilize
 [Semantic Versioning](http://semver.org/), but every now and then, a client
-chooses to not stick with standards and cut its own path:
+chooses to not stick with standards and cut its own path.
 
     XX.YY.ZZzz-NNNN
     |  |  | |  |
