@@ -19,7 +19,6 @@ assert_eq "$($VERSION 69000000      )" "69.00.0000" "Integer parsing"
 assert_eq "$($VERSION 12345678      )" "12.34.5678" "Integer parsing"
 assert_eq "$($VERSION 99999999      )" "99.99.9999" "Integer parsing"
 
-
 assert_eq "$($VERSION -i 0          )"        "0" "Integer output"
 assert_eq "$($VERSION -i 1          )"        "1" "Integer output"
 assert_eq "$($VERSION -i 00.00.1234 )"     "1234" "Integer output"
