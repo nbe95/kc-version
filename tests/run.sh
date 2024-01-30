@@ -2,6 +2,7 @@
 
 DIR="$(dirname "$0")"
 VERSION="$DIR/../version.sh"
+export VERSION
 
 # shellcheck disable=SC1091
 source "$DIR/assert/assert.sh"
@@ -10,9 +11,12 @@ source "$DIR/assert/assert.sh"
 CY="$(date +"%y")"
 NY=$((CY + 1))
 PY=$((CY - 1))
+export CY
+export NY
+export PY
 
 # Run separate unit tests
-source "$DIR/test-git.sh"
-source "$DIR/test-args.sh"
-source "$DIR/test-parse.sh"
-source "$DIR/test-bump.sh"
+"$DIR/test-git.sh"
+"$DIR/test-args.sh"
+"$DIR/test-parse.sh"
+"$DIR/test-bump.sh"
