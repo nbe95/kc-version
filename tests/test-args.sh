@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Check invalid argument format (exit codes only)
+# Check argument format (exit codes only)
+assert_eq "$($VERSION -h            &> /dev/null)$?" "0" "Argument check"
+assert_eq "$($VERSION --help        &> /dev/null)$?" "0" "Argument check"
+
 assert_eq "$($VERSION               &> /dev/null)$?" "1" "Argument check"
+
 assert_eq "$($VERSION foo           &> /dev/null)$?" "2" "Argument check"
 assert_eq "$($VERSION foo123        &> /dev/null)$?" "2" "Argument check"
 assert_eq "$($VERSION foo.bar.123   &> /dev/null)$?" "2" "Argument check"
