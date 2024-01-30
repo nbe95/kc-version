@@ -4,7 +4,6 @@ DIR="$(dirname "$0")"
 VERSION="$DIR/../version.sh"
 export VERSION
 
-# shellcheck disable=SC1091
 source "$DIR/assert/assert.sh"
 
 # Prepare current, next and previous year as variables
@@ -16,7 +15,7 @@ export NY
 export PY
 
 # Run separate unit tests
-"$DIR/test-git.sh"
-"$DIR/test-args.sh"
-"$DIR/test-parse.sh"
-"$DIR/test-bump.sh"
+source "$DIR/test-git.sh"
+source "$DIR/test-args.sh"
+source "$DIR/test-parse.sh"
+source "$DIR/test-bump.sh"
