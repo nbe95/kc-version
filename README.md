@@ -41,12 +41,12 @@ This makes it the ideal tool for use in CI pipelines etc.
 
 - Print verbose and human-readable information with `-v` or `--verbose`
 
-        $ ./version.sh -i -v 00.42.0069
-        420069
+        $ ./version.sh -i -v 01.42.5069
+        1425069
 
-        Customer ID:        0
+        Customer ID:        1
         Deployment year:    2042
-        Major version:      42
+        Major version:      50
         Minor version:      69
 
 - When running in a Git repository, automatically fetch the latest tag as
