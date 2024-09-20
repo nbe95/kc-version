@@ -2,24 +2,23 @@
 
 ## The problem
 
-We live in a world which is far from perfect. Everybody should obviously utilize
-[Semantic Versioning](http://semver.org/), but every now and then, a client
-chooses to not stick with standards and cut their own path.
+We live in a world which is far from perfect. Everybody should obviously utilize [Semantic
+Versioning](http://semver.org/), but every now and then, a client chooses to not stick with
+standards and cut their own path.
 
     XX.YY.ZZzz-NNNN
     |  |  | |  |
-    |  |  | |  +---- Bugfix release/internal build number
-    |  |  | +------- Minor release
-    |  |  +--------- Major release
-    |  +------------ Deployment year
-    +--------------- Customer ID (00 = not customer dependent)
+    |  |  | |  +---- Build number (internal)
+    |  |  | +------- Patch release
+    |  |  +--------- Minor release
+    |  +------------ Major release = year of deployment
+    +--------------- Customer identification
 
 ## The solution
 
-Having to work with that very specific version scheme, this script comes in very
-handy. While humans often suffer from the pitfalls of non-standard and
-unintuitive conventions, `version.sh` is able to properly show, parse and
-even increment any version number if needed!
+Having to work with such a specific version scheme, this script comes in very handy. While humans
+often suffer from the pitfalls of non-standard and unintuitive conventions, `version.sh` is able to
+properly show, parse and even increment any version number if needed.
 
 This makes it the ideal tool for use in CI pipelines etc.
 
@@ -44,13 +43,12 @@ This makes it the ideal tool for use in CI pipelines etc.
         $ ./version.sh -i -v 01.42.5069
         1425069
 
-        Customer ID:        1
-        Deployment year:    2042
-        Major version:      50
-        Minor version:      69
+        Customer:       1
+        Major:          2042
+        Minor:          50
+        Patch:          69
 
-- When running in a Git repository, automatically fetch the latest tag as
-  version identifier:
+- When running in a Git repository, automatically fetch the latest tag as version identifier:
 
         $ git tag
         1.2.30
@@ -59,12 +57,11 @@ This makes it the ideal tool for use in CI pipelines etc.
 
 - Increment version numbers (with respect to the current year, e.g. 2023):
 
-        $ ./version.sh --minor 11.23.0607
+        $ ./version.sh --bump-minor 11.23.0607
         11.23.0700
-        $ ./version.sh --major 11.23.0607
+        $ ./version.sh --bump-major 11.23.0607
         11.23.0608
-        $ ./version.sh --minor 11.20.1234
+        $ ./version.sh --bump-minor 11.20.1234
         11.23.0100
 
-Run `./version.sh --help` or take a look at the unit tests to see all available
-options.
+Run `./version.sh --help` or take a look at the unit tests to see all available options.
