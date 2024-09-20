@@ -26,10 +26,12 @@ This makes it the ideal tool for use in CI pipelines etc.
 
 - Parse version tags in dot-style or integer notation:
 
-        $ ./version.sh 12.34.5678
+        $ ./version.sh v12.34.5678
         12.34.5678
-        $ ./version.sh 12345
-        00.01.2345
+        $ ./version.sh 98.76.5432
+        98.76.5432
+        $ ./version.sh 24681012
+        24.68.1012
 
 - Return bare integer version tags with `-i` or `--integer`:
 
