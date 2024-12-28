@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 dir="$(dirname "$0")"
 CMD="$dir/../version.sh"
 
