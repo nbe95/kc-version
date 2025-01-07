@@ -1,12 +1,14 @@
 #!/bin/bash
 
 dir="$(dirname "$0")"
-VERSION="$dir/../version.sh"
-export VERSION
+CMD="$dir/../version.sh"
 
-source "$dir/assert/assert.sh"
+export CMD
+
+source "$dir/util/assert/assert.sh"
 
 # Run all unit test files
-for file in "$dir"/test*.sh; do
+set -e
+for file in "$dir"/*.test.sh; do
    source "$file"
 done
